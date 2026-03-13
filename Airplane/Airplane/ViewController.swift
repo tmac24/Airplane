@@ -19,11 +19,15 @@ class ViewController: UIViewController {
         
         let result1 = wrapper.add(withA1: 8, b: 10)
         print(result1)
+        
+        wrapper.testC()
 
         //纯 C 接口桥接
         let engine = engine_create()
         engine_start(engine)
         engine_destroy(engine)
+        
+        
         
     }
 

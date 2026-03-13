@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (int)addWithA:(int)a b:(int)b;
 - (int)addWithA1:(int)a b:(int)b;
+
+- (void)testC;
+
 @end
 
 NS_ASSUME_NONNULL_END

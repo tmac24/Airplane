@@ -29,5 +29,32 @@
     return _test1.add1(a, b);
 }
 
+- (void)testC {
+    Person p;
+    p.name = "hms";
+    p.age = 18;
+    p.sayHello();
+    
+    Person *f = new Person();
+    f->name = "Foug";
+    f->age = 20;
+    f->sayHello();
+    delete f;
+        
+    /**
+     Person p
+
+     创建对象
+     使用 .
+     自动管理内存
+
+     Person *p
+     创建指针
+     使用 ->
+
+     指向对象地址
+     */
+    
+}
 
 @end

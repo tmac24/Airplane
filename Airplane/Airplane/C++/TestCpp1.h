@@ -15,4 +15,17 @@ public:
     int add1(int a, int b);
 };
 
+
+//类
+#include <string>
+
+class Person {
+    
+public:
+    int age;
+    std::string name;
+    void sayHello();
+};
+
+
 #endif /* TestCpp1_hpp */
