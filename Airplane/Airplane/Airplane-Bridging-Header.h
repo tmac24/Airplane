@@ -5,3 +5,9 @@
 
 #import "CppWrapper.h"
 #include "Cpp_engine.h"
+
+#import "GLView.h"
+#import "GLDepthView.h"
+
+#import "GLAirplaneView.h"
+#import "GLAirplaneDepthView.h"

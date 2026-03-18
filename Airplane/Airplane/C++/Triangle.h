@@ -28,6 +28,7 @@ public:
 private:
     GLuint VBO;        // 顶点缓冲对象
     GLuint shaderProgram;
+    float angle;
 
     GLuint compileShader(const std::string& source, GLenum type);
     GLuint linkProgram(GLuint vertexShader, GLuint fragmentShader);

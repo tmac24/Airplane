@@ -11,8 +11,21 @@
 // 顶点着色器 GLSL
 const char* vertexShaderSource = R"(
 attribute vec3 aPos;
+
+uniform float angle;
+
 void main() {
-    gl_Position = vec4(aPos, 1.0);
+    float s = sin(angle);
+    float c = cos(angle);
+
+    mat4 rotation = mat4(
+        c,  s,  0.0, 0.0,
+       -s,  c,  0.0, 0.0,
+        0.0,0.0,1.0, 0.0,
+        0.0,0.0,0.0, 1.0
+    );
+
+    gl_Position = rotation * vec4(aPos, 1.0);
 }
 )";
 
@@ -20,7 +33,7 @@ void main() {
 const char* fragmentShaderSource = R"(
 precision mediump float;
 void main() {
-    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0); // 红色
+    gl_FragColor = vec4(0.5, 0.5, 0.5, 1.0); // 灰色
 }
 )";
 
@@ -31,7 +44,7 @@ GLfloat vertices[] = {
      0.5f, -0.5f, 0.0f
 };
 
-Triangle::Triangle() : VBO(0), shaderProgram(0) {}
+Triangle::Triangle() : VBO(0), shaderProgram(0), angle(0.0f) {}
 
 Triangle::~Triangle() {
     cleanup();
@@ -55,7 +68,13 @@ void Triangle::init() {
 }
 
 void Triangle::render() {
+    
+    angle += 0.02f;   // 每帧增加一点
+
     glUseProgram(shaderProgram);
+    
+    GLint angleLoc = glGetUniformLocation(shaderProgram, "angle");
+    glUniform1f(angleLoc, angle);
 
     // 绑定 VBO
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -107,3 +126,34 @@ GLuint Triangle::linkProgram(GLuint vertexShader, GLuint fragmentShader) {
 
     return program;
 }
+
+
+/**
+ 
+ #include "Triangle.h"
+ #include <GLES2/gl2.h>
+ #include <EGL/egl.h>  // 平台初始化示例，实际根据 iOS/Android 设置
+
+ int main() {
+     // 初始化 OpenGL ES 上下文 (EGL / iOS 或 Android 视图)
+     // 这里略，通常由平台提供
+
+     Triangle triangle;
+     triangle.init();
+
+     // 渲染循环
+     while (true) {
+         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+         glClear(GL_COLOR_BUFFER_BIT);
+
+         triangle.render();
+
+         // 刷新显示缓冲区 (SwapBuffers)
+         // 平台相关函数，例如 eglSwapBuffers(display, surface);
+     }
+
+     triangle.cleanup();
+     return 0;
+ }
+ 
+ */
