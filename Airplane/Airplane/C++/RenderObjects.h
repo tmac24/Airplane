@@ -36,3 +36,16 @@ private:
 };
 
 #endif /* RenderObjects_hpp */
+
+
+/**
+ | 特性     | Objective-C                 | C++                            |
+ | ------ | --------------------------- | ------------------------------ |
+ | 声明对象方法 | `- (void)render`            | `void RenderObjects::render()` |
+ | 类方法    | `+ (void)foo`               | `static void foo()`            |
+ | 构造函数   | `- init`                    | `RenderObjects()`              |
+ | 析构函数   | `- dealloc`                 | `~RenderObjects()`             |
+ | 访问成员   | `self->member` 或直接 `member` | `this->member` 或直接 `member`    |
+
+ 
+ */

@@ -114,7 +114,7 @@ void RenderObjects::init() {
 void RenderObjects::render() {
     glUseProgram(shaderProgram);
 
-    angle += 0.02f; // 每帧旋转
+    angle += 0.01f; // 每帧旋转
 
     GLint angleLoc = glGetUniformLocation(shaderProgram,"angle");
     glUniform1f(angleLoc, angle);
@@ -134,7 +134,7 @@ void RenderObjects::render() {
 
     // ===== 2️⃣ 绘制旋转三角形 =====
     glUniform1f(angleLoc,angle);
-    glUniform4f(colorLoc,1.0f,0.0f,0.0f,1.0f);
+    glUniform4f(colorLoc,0.3f,0.2f,0.3f,1.0f);
 
     glBindBuffer(GL_ARRAY_BUFFER,triVBO);
     glVertexAttribPointer(posAttrib,3,GL_FLOAT,GL_FALSE,3*sizeof(GLfloat),0);

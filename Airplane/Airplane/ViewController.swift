@@ -59,19 +59,18 @@ class ViewController: UIViewController {
          VBO
          draw
          */
-        let glAirView = GLAirplaneView(frame: view.bounds)
-        view.addSubview(glAirView)
-        glAirView.startRender()
-        
+//        let glAirView = GLAirplaneView(frame: view.bounds)
+//        view.addSubview(glAirView)
+//        glAirView.startRender()
         
         
         
         /**
-         画三角形  GLAirplaneView（负责 iOS 环境） Triangle（负责 OpenGL 绘制）
+         画三角形  GLAirplaneView（负责 iOS 环境） RenderObjects（负责 OpenGL 绘制）
          */
-//        let airDepthView = GLAirplaneDepthView(frame: view.bounds)
-//        view.addSubview(airDepthView)
-//        airDepthView.startRender()
+        let airDepthView = GLAirplaneDepthView(frame: view.bounds)
+        view.addSubview(airDepthView)
+        airDepthView.startRender()
         
         
         

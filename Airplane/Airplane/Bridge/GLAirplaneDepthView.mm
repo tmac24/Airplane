@@ -76,7 +76,7 @@
 
 - (void)setupContext {
     // 创建 OpenGL ES 2.0 上下文
-    context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
 
     // 设置为当前上下文（非常重要）
     [EAGLContext setCurrentContext:context];
@@ -118,7 +118,7 @@
     glGenRenderbuffers(1,&depthStencilBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER,depthStencilBuffer);
     glRenderbufferStorage(GL_RENDERBUFFER,
-                          GL_DEPTH_COMPONENT16,
+                          GL_DEPTH24_STENCIL8,
                           size.width*scale,
                           size.height*scale);
 

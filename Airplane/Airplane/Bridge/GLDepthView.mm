@@ -220,38 +220,6 @@ void makePerspective(float fovy, float aspect, float near, float far, float *m) 
     [context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    [EAGLContext setCurrentContext:context];
-
-    if(frameBuffer) glDeleteFramebuffers(1,&frameBuffer);
-    if(colorBuffer) glDeleteRenderbuffers(1,&colorBuffer);
-    if(depthBuffer) glDeleteRenderbuffers(1,&depthBuffer);
-
-    // Color buffer
-    glGenRenderbuffers(1,&colorBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER,colorBuffer);
-    [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)self.layer];
-
-    // Depth buffer
-    glGenRenderbuffers(1,&depthBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER,depthBuffer);
-    CGFloat scale = [UIScreen mainScreen].scale;
-    glRenderbufferStorage(GL_RENDERBUFFER,GL_DEPTH_COMPONENT16,
-                          self.bounds.size.width*scale,
-                          self.bounds.size.height*scale);
-
-    // Frame buffer
-    glGenFramebuffers(1,&frameBuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER,frameBuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorBuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer);
-
-    if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE){
-        NSLog(@"❌ FrameBuffer 不完整");
-    }
-}
-
 #pragma mark - Start
 
 - (void)startRender {
