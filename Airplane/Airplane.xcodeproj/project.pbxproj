@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2DE45A952F6BDDB900E4DE2D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE45A942F6BDDB900E4DE2D /* libsqlite3.tbd */; };
+		2DE45A972F6BDDC200E4DE2D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE45A962F6BDDC200E4DE2D /* OpenAL.framework */; };
+		2DE45A992F6BDDCB00E4DE2D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE45A982F6BDDCB00E4DE2D /* QuartzCore.framework */; };
+		2DE45A9B2F6BDDD300E4DE2D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE45A9A2F6BDDD300E4DE2D /* libz.tbd */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2DA04B952F58180E000CF6F3 /* Airplane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airplane.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DE45A942F6BDDB900E4DE2D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2DE45A962F6BDDC200E4DE2D /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		2DE45A982F6BDDCB00E4DE2D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2DE45A9A2F6BDDD300E4DE2D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +47,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DE45A9B2F6BDDD300E4DE2D /* libz.tbd in Frameworks */,
+				2DE45A992F6BDDCB00E4DE2D /* QuartzCore.framework in Frameworks */,
+				2DE45A972F6BDDC200E4DE2D /* OpenAL.framework in Frameworks */,
+				2DE45A952F6BDDB900E4DE2D /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				2DA04B972F58180E000CF6F3 /* Airplane */,
+				2DE45A932F6BDDB900E4DE2D /* Frameworks */,
 				2DA04B962F58180E000CF6F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +72,17 @@
 				2DA04B952F58180E000CF6F3 /* Airplane.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2DE45A932F6BDDB900E4DE2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DE45A9A2F6BDDD300E4DE2D /* libz.tbd */,
+				2DE45A982F6BDDCB00E4DE2D /* QuartzCore.framework */,
+				2DE45A962F6BDDC200E4DE2D /* OpenAL.framework */,
+				2DE45A942F6BDDB900E4DE2D /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +179,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Airplane/C++/inc",
 					"$(SRCROOT)/Airplane/C++",
+					"$(SRCROOT)/Airplane/C++/srcCode/HmsGE",
+					"$(SRCROOT)/Airplane/C++/srcCode",
+					"$(SRCROOT)/Airplane/C++/srcCode/HmsAviCode",
+					"$(SRCROOT)/Airplane/C++/inc/freetype2",
 				);
 				INFOPLIST_FILE = Airplane/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -162,6 +193,13 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Airplane/C++/external/freetype2",
+					"$(PROJECT_DIR)/Airplane/C++/external/tiff",
+					"$(PROJECT_DIR)/Airplane/C++/external/jpeg/ios",
+					"$(PROJECT_DIR)/Airplane/C++/external/png/ios",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = www.HemsTec.Airplane;
@@ -187,6 +225,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Airplane/C++/inc",
 					"$(SRCROOT)/Airplane/C++",
+					"$(SRCROOT)/Airplane/C++/srcCode/HmsGE",
+					"$(SRCROOT)/Airplane/C++/srcCode",
+					"$(SRCROOT)/Airplane/C++/srcCode/HmsAviCode",
+					"$(SRCROOT)/Airplane/C++/inc/freetype2",
 				);
 				INFOPLIST_FILE = Airplane/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -197,6 +239,13 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Airplane/C++/external/freetype2",
+					"$(PROJECT_DIR)/Airplane/C++/external/tiff",
+					"$(PROJECT_DIR)/Airplane/C++/external/jpeg/ios",
+					"$(PROJECT_DIR)/Airplane/C++/external/png/ios",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = www.HemsTec.Airplane;
